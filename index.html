@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Calculator</title>
+    <title>Grade Calculator - Semester 2</title>
     
     <style>
         :root {
@@ -43,49 +43,18 @@
         h1 {
             text-align: center;
             color: var(--primary-color);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 24px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
 
-        /* Tabs Styling */
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 25px;
-            background: #0f172a;
-            padding: 6px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 10px;
-            background: transparent;
-            color: var(--text-color);
-            border: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
+        h2 {
             text-align: center;
-        }
-
-        .tab-btn.active {
-            background: var(--accent-color);
-            color: #0f172a;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
+            color: var(--accent-color);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
         }
 
         /* Cards and Elements */
@@ -207,34 +176,6 @@
             border: 1px solid rgba(239, 68, 68, 0.3);
         }
 
-        /* Annual Tab Specifics */
-        .annual-guide {
-            text-align: center;
-            font-size: 14px;
-            color: #94a3b8;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .pull-btn {
-            background-color: #334155;
-            color: var(--primary-color);
-            border: 1px solid var(--border-color);
-            padding: 8px 12px;
-            font-size: 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            margin: 15px auto 5px auto;
-            display: block;
-            transition: all 0.2s;
-        }
-
-        .pull-btn:hover {
-            background-color: #475569;
-            border-color: #475569;
-        }
-
         footer {
             text-align: center;
             margin-top: 35px;
@@ -246,7 +187,6 @@
         }
     </style>
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SSLLBJD4P"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -260,234 +200,89 @@
 
 <div class="container">
     <h1>Grade Calculator</h1>
+    <h2>Semester 2</h2>
     
-    <!-- Top Tabs System -->
-    <div class="tabs-container">
-        <button class="tab-btn active" onclick="switchTab('s1-content', this)">Semester 1</button>
-        <button class="tab-btn" onclick="switchTab('s2-content', this)">Semester 2</button>
-        <button class="tab-btn" onclick="switchTab('annual-content', this)">Annual Result</button>
-    </div>
-
-    <!-- SEMESTER 1 CONTENT -->
-    <div id="s1-content" class="tab-content active">
-        <form id="s1-form">
-            <!-- 1. Analyse 1 (Coef 3) -->
-            <div class="subject-card" data-coef="3">
-                <div class="subject-header">
-                    <span class="subject-title">Analyse 1</span>
-                    <span class="subject-coef">Coef 3</span>
-                </div>
-                <div class="inputs-grid two-cols">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                </div>
+    <form id="s2-form">
+        <div class="subject-card" data-coef="4">
+            <div class="subject-header">
+                <span class="subject-title">Thermodynamics</span>
+                <span class="subject-coef">Coef 4</span>
             </div>
-
-            <!-- 2. Algebre 1 (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Algèbre 1</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid two-cols">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                </div>
-            </div>
-
-            <!-- 3. Chimie 1 (Coef 4) -->
-            <div class="subject-card" data-coef="4">
-                <div class="subject-header">
-                    <span class="subject-title">Chimie 1 (Structure de la matière)</span>
-                    <span class="subject-coef">Coef 4</span>
-                </div>
-                <div class="inputs-grid">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                    <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
-                </div>
-            </div>
-
-            <!-- 4. Physique 1 (Coef 4) -->
-            <div class="subject-card" data-coef="4">
-                <div class="subject-header">
-                    <span class="subject-title">Physique 1 (Mécanique)</span>
-                    <span class="subject-coef">Coef 4</span>
-                </div>
-                <div class="inputs-grid">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                    <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
-                </div>
-            </div>
-
-            <!-- 5. Probabilités et statistiques (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Probabilités & Statistiques</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid two-cols">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                </div>
-            </div>
-
-            <!-- 6. Informatique 1 (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Informatique 1</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid two-cols">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
-                </div>
-            </div>
-
-            <!-- 7. Dimension éthique et déontologique (Coef 1) -->
-            <div class="subject-card" data-coef="1">
-                <div class="subject-header">
-                    <span class="subject-title">Ethique & Déontologie</span>
-                    <span class="subject-coef">Coef 1</span>
-                </div>
-                <div class="inputs-grid one-col">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                </div>
-            </div>
-
-           <!-- 5. Les métiers de l'ingénieur (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Les métiers de l'ingénieur</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid one-col">
-                    <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                </div>
-            </div>
-
-            <button type="button" class="btn-calc" onclick="calculateS1()">Calculate S1 Average</button>
-        </form>
-        <div id="s1-result" class="result-box"></div>
-    </div>
-
-    <!-- SEMESTER 2 CONTENT -->
-    <div id="s2-content" class="tab-content">
-        <form id="s2-form">
-            <!-- 1. Thermodynamics (Coef 4) -->
-            <div class="subject-card" data-coef="4">
-                <div class="subject-header">
-                    <span class="subject-title">Thermodynamics</span>
-                    <span class="subject-coef">Coef 4</span>
-                </div>
-                <div class="inputs-grid">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                    <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
-                </div>
-            </div>
-
-            <!-- 2. Electricity & Magnetism (Coef 4) -->
-            <div class="subject-card" data-coef="4">
-                <div class="subject-header">
-                    <span class="subject-title">Electricity & Magnetism</span>
-                    <span class="subject-coef">Coef 4</span>
-                </div>
-                <div class="inputs-grid">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                    <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
-                </div>
-            </div>
-
-            <!-- 3. Analyse 2 (Coef 3) -->
-            <div class="subject-card" data-coef="3">
-                <div class="subject-header">
-                    <span class="subject-title">Analyse 2</span>
-                    <span class="subject-coef">Coef 3</span>
-                </div>
-                <div class="inputs-grid two-cols">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                </div>
-            </div>
-
-            <!-- 4. Algebre 2 (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Algebre 2</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid two-cols">
-                    <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                    <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
-                </div>
-            </div>
-
-            <!-- 5. FOSS (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">FOSS</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid one-col">
-                    <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                </div>
-            </div>
-
-            <!-- 6. Dessin Technique (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Dessin Technique</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid one-col">
-                    <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                </div>
-            </div>
-
-            <!-- 7. Informatique 2 (Coef 2) -->
-            <div class="subject-card" data-coef="2">
-                <div class="subject-header">
-                    <span class="subject-title">Informatique 2</span>
-                    <span class="subject-coef">Coef 2</span>
-                </div>
-                <div class="inputs-grid one-col">
-                    <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
-                </div>
-            </div>
-
-            <button type="button" class="btn-calc" onclick="calculateS2()">Calculate S2 Average</button>
-        </form>
-        <div id="s2-result" class="result-box"></div>
-    </div>
-
-    <!-- ANNUAL CUMULATIVE AVERAGE CONTENT -->
-    <div id="annual-content" class="tab-content">
-        <div class="annual-guide">
-            Calculate your annual score to see if you qualify for compensation (Moyenne ≥ 10.00). 
-            You can pull calculated grades from the tabs or enter them manually.
-        </div>
-
-        <button class="pull-btn" onclick="pullAverages()">Pull calculated averages from tabs ⚡</button>
-
-        <div class="subject-card" style="border-bottom: none;">
-            <div class="inputs-grid two-cols" style="max-width: 500px; margin: 0 auto;">
-                <div class="input-group">
-                    <label>S1 AVERAGE</label>
-                    <input type="number" id="annual-s1" step="0.01" min="0" max="20" placeholder="0.00">
-                </div>
-                <div class="input-group">
-                    <label>S2 AVERAGE</label>
-                    <input type="number" id="annual-s2" step="0.01" min="0" max="20" placeholder="0.00">
-                </div>
+            <div class="inputs-grid">
+                <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+                <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
+                <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
             </div>
         </div>
 
-        <button type="button" class="btn-calc" onclick="calculateAnnual()">Calculate Annual Average</button>
-        <div id="annual-result" class="result-box"></div>
-    </div>
+        <div class="subject-card" data-coef="4">
+            <div class="subject-header">
+                <span class="subject-title">Electricity & Magnetism</span>
+                <span class="subject-coef">Coef 4</span>
+            </div>
+            <div class="inputs-grid">
+                <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+                <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
+                <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
+            </div>
+        </div>
+
+        <div class="subject-card" data-coef="3">
+            <div class="subject-header">
+                <span class="subject-title">Analyse 2</span>
+                <span class="subject-coef">Coef 3</span>
+            </div>
+            <div class="inputs-grid two-cols">
+                <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+                <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
+            </div>
+        </div>
+
+        <div class="subject-card" data-coef="2">
+            <div class="subject-header">
+                <span class="subject-title">Algebre 2</span>
+                <span class="subject-coef">Coef 2</span>
+            </div>
+            <div class="inputs-grid two-cols">
+                <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+                <div class="input-group"><label>TD</label><input type="number" step="0.01" min="0" max="20" class="td"></div>
+            </div>
+        </div>
+
+        <div class="subject-card" data-coef="2">
+            <div class="subject-header">
+                <span class="subject-title">FOSS</span>
+                <span class="subject-coef">Coef 2</span>
+            </div>
+            <div class="inputs-grid one-col">
+                <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+            </div>
+        </div>
+
+        <div class="subject-card" data-coef="2">
+            <div class="subject-header">
+                <span class="subject-title">Dessin Technique</span>
+                <span class="subject-coef">Coef 2</span>
+            </div>
+            <div class="inputs-grid one-col">
+                <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+            </div>
+        </div>
+
+        <div class="subject-card" data-coef="2">
+            <div class="subject-header">
+                <span class="subject-title">Informatique 2</span>
+                <span class="subject-coef">Coef 2</span>
+            </div>
+            <div class="inputs-grid one-col">
+                <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+            </div>
+        </div>
+
+        <button type="button" class="btn-calc" onclick="calculateS2()">Calculate Semester 2 Average</button>
+    </form>
+    
+    <div id="s2-result" class="result-box"></div>
 
     <footer>
         By Farouk © 2026
@@ -495,91 +290,9 @@
 </div>
 
 <script>
-    // Tab switching engine
-    function switchTab(tabId, btnElement) {
-        // Hide all tab contents
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        // Deactivate all tab buttons
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        // Activate selected tab and content
-        document.getElementById(tabId).classList.add('active');
-        btnElement.classList.add('active');
-    }
-
-    // Calculating S1 Average
-    function calculateS1() {
-        const cards = document.querySelectorAll('#s1-content .subject-card');
-        let totalPoints = 0;
-        let totalCoefficients = 0;
-        let allInputsValid = true;
-
-        cards.forEach(card => {
-            const coef = parseFloat(card.getAttribute('data-coef'));
-            const examInput = card.querySelector('.exam');
-            const tdInput = card.querySelector('.td');
-            const tpInput = card.querySelector('.tp');
-
-            if (!examInput.value || examInput.value < 0 || examInput.value > 20) {
-                allInputsValid = false;
-                examInput.style.borderColor = '#ef4444';
-                return;
-            } else {
-                examInput.style.borderColor = '#334155';
-            }
-
-            const examValue = parseFloat(examInput.value);
-            let ccValue = 0;
-            let ccCount = 0;
-
-            if (tdInput && tdInput.value !== "") {
-                ccValue += parseFloat(tdInput.value);
-                ccCount++;
-            }
-            if (tpInput && tpInput.value !== "") {
-                ccValue += parseFloat(tpInput.value);
-                ccCount++;
-            }
-
-            let subjectMoyenne = 0;
-            if (ccCount > 0) {
-                const finalCC = ccValue / ccCount;
-                subjectMoyenne = (examValue * 0.6) + (finalCC * 0.4);
-            } else {
-                subjectMoyenne = examValue;
-            }
-
-            totalPoints += (subjectMoyenne * coef);
-            totalCoefficients += coef;
-        });
-
-        if (!allInputsValid) {
-            alert("Please ensure all exam fields for S1 are filled correctly (0-20).");
-            return null;
-        }
-
-        const finalMoyenne = totalPoints / totalCoefficients;
-        const resultBox = document.getElementById('s1-result');
-        
-        resultBox.style.display = 'block';
-        resultBox.innerHTML = `S1 Average: ${finalMoyenne.toFixed(2)} / 20`;
-
-        if (finalMoyenne >= 10) {
-            resultBox.className = 'result-box success';
-        } else {
-            resultBox.className = 'result-box fail';
-        }
-
-        return finalMoyenne;
-    }
-
     // Calculating S2 Average
     function calculateS2() {
-        const cards = document.querySelectorAll('#s2-content .subject-card');
+        const cards = document.querySelectorAll('.subject-card');
         let totalPoints = 0;
         let totalCoefficients = 0;
         let allInputsValid = true;
@@ -624,59 +337,17 @@
         });
 
         if (!allInputsValid) {
-            alert("Please ensure all exam fields for S2 are filled correctly (0-20).");
-            return null;
+            alert("Please ensure all required exam fields are filled correctly (0-20).");
+            return;
         }
 
         const finalMoyenne = totalPoints / totalCoefficients;
         const resultBox = document.getElementById('s2-result');
         
         resultBox.style.display = 'block';
-        resultBox.innerHTML = `S2 Average: ${finalMoyenne.toFixed(2)} / 20`;
+        resultBox.innerHTML = `Semester 2 Average: ${finalMoyenne.toFixed(2)} / 20`;
 
         if (finalMoyenne >= 10) {
-            resultBox.className = 'result-box success';
-        } else {
-            resultBox.className = 'result-box fail';
-        }
-
-        return finalMoyenne;
-    }
-
-    // Pulled calculated averages automatically
-    function pullAverages() {
-        const s1 = calculateS1();
-        const s2 = calculateS2();
-
-        if (s1 !== null) {
-            document.getElementById('annual-s1').value = s1.toFixed(2);
-        }
-        if (s2 !== null) {
-            document.getElementById('annual-s2').value = s2.toFixed(2);
-        }
-
-        if (s1 === null && s2 === null) {
-            alert("S1 and S2 could not be calculated automatically. Fill their exams first or type averages manually.");
-        }
-    }
-
-    // Calculate annual average
-    function calculateAnnual() {
-        const s1Val = parseFloat(document.getElementById('annual-s1').value);
-        const s2Val = parseFloat(document.getElementById('annual-s2').value);
-
-        if (isNaN(s1Val) || s1Val < 0 || s1Val > 20 || isNaN(s2Val) || s2Val < 0 || s2Val > 20) {
-            alert("Please provide valid S1 and S2 averages (between 0 and 20).");
-            return;
-        }
-
-        const annualAvg = (s1Val + s2Val) / 2;
-        const resultBox = document.getElementById('annual-result');
-        
-        resultBox.style.display = 'block';
-        resultBox.innerHTML = `Annual Cumulative Average: ${annualAvg.toFixed(2)} / 20`;
-
-        if (annualAvg >= 10) {
             resultBox.className = 'result-box success';
         } else {
             resultBox.className = 'result-box fail';
