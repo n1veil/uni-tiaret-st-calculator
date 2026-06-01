@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Calculator - Semester 2</title>
+    <title>Grade Calculator</title>
     
     <style>
         :root {
@@ -43,18 +43,10 @@
         h1 {
             text-align: center;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 25px;
             font-size: 24px;
             font-weight: 700;
             letter-spacing: -0.5px;
-        }
-
-        h2 {
-            text-align: center;
-            color: var(--accent-color);
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 25px;
         }
 
         /* Cards and Elements */
@@ -200,9 +192,8 @@
 
 <div class="container">
     <h1>Grade Calculator</h1>
-    <h2>Semester 2</h2>
     
-    <form id="s2-form">
+    <form id="calc-form">
         <div class="subject-card" data-coef="4">
             <div class="subject-header">
                 <span class="subject-title">Thermodynamics</span>
@@ -254,8 +245,9 @@
                 <span class="subject-title">FOSS</span>
                 <span class="subject-coef">Coef 2</span>
             </div>
-            <div class="inputs-grid one-col">
-                <div class="input-group"><label>MARK</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+            <div class="inputs-grid two-cols">
+                <div class="input-group"><label>EXAM</label><input type="number" step="0.01" min="0" max="20" required class="exam"></div>
+                <div class="input-group"><label>TP</label><input type="number" step="0.01" min="0" max="20" class="tp"></div>
             </div>
         </div>
 
@@ -279,10 +271,10 @@
             </div>
         </div>
 
-        <button type="button" class="btn-calc" onclick="calculateS2()">Calculate Semester 2 Average</button>
+        <button type="button" class="btn-calc" onclick="calculateAverage()">Calculate Average</button>
     </form>
     
-    <div id="s2-result" class="result-box"></div>
+    <div id="result-box" class="result-box"></div>
 
     <footer>
         By Farouk © 2026
@@ -290,8 +282,7 @@
 </div>
 
 <script>
-    // Calculating S2 Average
-    function calculateS2() {
+    function calculateAverage() {
         const cards = document.querySelectorAll('.subject-card');
         let totalPoints = 0;
         let totalCoefficients = 0;
@@ -342,10 +333,10 @@
         }
 
         const finalMoyenne = totalPoints / totalCoefficients;
-        const resultBox = document.getElementById('s2-result');
+        const resultBox = document.getElementById('result-box');
         
         resultBox.style.display = 'block';
-        resultBox.innerHTML = `Semester 2 Average: ${finalMoyenne.toFixed(2)} / 20`;
+        resultBox.innerHTML = `Average: ${finalMoyenne.toFixed(2)} / 20`;
 
         if (finalMoyenne >= 10) {
             resultBox.className = 'result-box success';
